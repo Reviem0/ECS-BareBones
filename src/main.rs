@@ -1,5 +1,6 @@
 use core::panic;
 use std::{collections::HashMap, fs::File, io::{BufRead, BufReader}, path::Path};
+use std::env::args;
 
 struct Interpreter {
     memory: HashMap<String, i32>,
@@ -66,8 +67,10 @@ impl Interpreter {
 }
 
 fn main() {
-    let path = Path::new("Barebone.txt");
+    let args: Vec<String> = args().collect();
+    let path = Path::new(&args[1]);
     if !path.exists() {
+        print!("{}", path.display());
         panic!("Path does not exist");
     }
 
