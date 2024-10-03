@@ -1,0 +1,5 @@
+Usage:
+
+```
+ECS-Barebone <path>
+```
